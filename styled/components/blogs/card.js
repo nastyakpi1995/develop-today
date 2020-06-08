@@ -25,7 +25,6 @@ export const Section = styled.div`
     position: relative;
     box-sizing: border-box;
     display: flex;
-    flex-direction: column;
     
     div {
       width: 60%;
@@ -53,7 +52,8 @@ export const Section = styled.div`
     'border-bottom: 1px solid #e9eef1;' +
     'background-size: cover;' +
     'div { width: 100%; height: 60%; }' +
-    'section { width: 100%; height: 200px; }'
+    'section { width: 100%; height: 200px; }' +
+    'flex-direction: column;'
      :
     ' text-align: left; margin-bottom: 50px;'
 };

@@ -50,10 +50,13 @@ export default (state = defaultState, action) => {
     }
 
     case FETCH_TYPES.POST_SUCCESS: {
+      debugger
       return {
         ...state,
         postPutSuccess: true,
         postLoading: false,
+        postsData: action.data,
+        endPage: action.data.length,
       };
     }
 
