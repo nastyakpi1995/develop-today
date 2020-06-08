@@ -37,7 +37,7 @@ export const BlockInput = styled.div`
 
 
 
-export const ButtonSave = styled.button`
+export const Button = styled.button`
   width: 100%;
   text-transform: uppercase;
   display: block;

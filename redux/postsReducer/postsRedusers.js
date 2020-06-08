@@ -50,7 +50,6 @@ export default (state = defaultState, action) => {
     }
 
     case FETCH_TYPES.POST_SUCCESS: {
-      debugger
       return {
         ...state,
         postPutSuccess: true,

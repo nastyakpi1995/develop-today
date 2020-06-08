@@ -3,7 +3,7 @@ import { Formik, Form } from 'formik';
 import { useRouter } from 'next/router';
 
 import ErrorMessage from './Error';
-import { Wrapper, ButtonSave, BlockInput } from '../../styled/components/form';
+import { Wrapper, Button, BlockInput } from '../../styled/components/form';
 
 interface ownInterface {
   onHandlerClick: Function,
@@ -74,9 +74,12 @@ const FormBlog: FunctionComponent<FormTypes> = ({
                   )}
                     </label>
                 </BlockInput>
-                    <ButtonSave type="submit">
+                  <Button type="button" onClick={() => history.push('/')}>
+                    Cansel
+                  </Button>
+                    <Button type="submit">
                         Submit
-                    </ButtonSave>
+                    </Button>
                 </Form>}
         </Formik>
     </Wrapper>
