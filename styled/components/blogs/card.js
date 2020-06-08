@@ -5,7 +5,7 @@ export const Title = styled.h1`
   font-weight: 500;
   line-height: 1.1;
   color: black;
-  margin-bottom: 30px;
+  margin: 0;
   transition: 0.5s all;
   cursor: pointer;
 
@@ -15,35 +15,36 @@ export const Title = styled.h1`
 `;
 
 export const CardWrapper = styled.div`
+  margin: 30px 0px;
   position: relative;
   box-sizing: border-box;
   display: ${props => (props.theme % 4 !== 0) ? 'inline-block' : 'flex'};
   width: ${props => (props.theme % 4 !== 0) ? '30%' : '100%'};
 `;
 
+export const Text = styled.div`
+   max-height: 150px;
+   height: 100%;
+   color: #738a94;
+   font-family: Georgia,serif;
+   margin-bottom: 15px;
+   font-size: 15px;
+   line-height: 1.5em;
+   overflow: hidden;
+`;
+
+
 export const Section = styled.div`  
     position: relative;
     box-sizing: border-box;
     display: flex;
     
+       
     div {
-      width: 60%;
-    }
     
-    p {
-      max-height: 150px;
-      height: 100%;
-      color: #738a94;
-      font-family: Georgia,serif;
-      margin-bottom: 15px;
-      font-size: 15px;
-      line-height: 1.5em;
-      overflow: hidden;
     }
-    
     section {
       width: 40%;
-      padding: 0 20px;
       overflow: hidden;
     }
   }
@@ -51,7 +52,7 @@ export const Section = styled.div`
     'padding: 15px;' +
     'border-bottom: 1px solid #e9eef1;' +
     'background-size: cover;' +
-    'div { width: 100%; height: 60%; }' +
+    'div { width: 100%; }' +
     'section { width: 100%; height: 200px; }' +
     'flex-direction: column;'
      :
@@ -59,14 +60,16 @@ export const Section = styled.div`
 };
 `;
 
-export const Button = styled.button`
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: inherit;
-  color: black;
-  border: none;
-  cursor: pointer;
+export const SectionBody =styled.div`
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+`;
+
+export const ImgBox = styled.div`
+  padding-right: 10px;
+  width: 60%;
 `;
 
 export const Img = styled.img`

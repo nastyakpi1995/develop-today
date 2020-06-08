@@ -3,7 +3,7 @@ import Link from "next/link";
 import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
 
-import Card from './Card';
+import Card from './components/Card';
 import * as actions from '../../redux/actions';
 import { PostsData } from "../../redux/typeScript/types";
 import { Container, BoxLoad } from '../../styled/components/blogs/blogs';

@@ -2,11 +2,23 @@ import React from 'react';
 
 import { FormBlog } from '../../components';
 import { Content } from '../../styled/pages/pages';
+import {connect} from "react-redux";
+import * as actions from "../../redux/actions";
 
-const Blog = () => (
-  <Content>
-      <FormBlog/>
-  </Content>
-);
+const initialValues = {
+    title: '',
+    body: '',
+};
 
-export default Blog;
+const Blog = ({ requestPostCreate }) => {
+    return (
+        <Content>
+            <FormBlog
+                initialValues={initialValues}
+                onHandlerClick={requestPostCreate}
+            />
+        </Content>
+    );
+}
+
+export default connect(null, actions)(Blog);

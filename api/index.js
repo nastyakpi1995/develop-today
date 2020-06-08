@@ -15,14 +15,14 @@ export const postsPost = async (data) => {
   });
 };
 
-export const userDelete = async (id) => {
+export const postDelete = async (id) => {
   return apiCaller({
     url: `/posts/${id}`,
     method: 'delete',
   });
 };
 
-export const userPut = async (id, data) => {
+export const PostPut = async (id, data) => {
   return apiCaller({
     url: `/posts/${id}`,
     method: 'put',

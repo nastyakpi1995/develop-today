@@ -1,45 +1,44 @@
 import React, { FunctionComponent }  from 'react';
-import { connect } from 'react-redux';
 import { Formik, Form } from 'formik';
 import { useRouter } from 'next/router';
 
-import * as actions from '../../redux/actions';
 import ErrorMessage from './Error';
 import { Wrapper, ButtonSave, BlockInput } from '../../styled/components/form';
-import { PostsData } from "../../redux/typeScript/types";
 
 interface ownInterface {
-  requestPostCreate: Function,
-  postsData: PostsData[]
+  onHandlerClick: Function,
+  initialValues: {
+      title: string,
+      body: string
+  }
+  id?: number
 }
 
 type FormTypes = ownInterface;
 
 const FormBlog: FunctionComponent<FormTypes> = ({
-  requestPostCreate, postsData
+  onHandlerClick, initialValues, id,
 }) => {
   const history = useRouter();
 
-  const initialValues = {
-    title: '',
-    body: '',
-  };
-
-  return (
+    return (
     <Wrapper>
       <Formik
         initialValues={initialValues}
         onSubmit={(values: object) => {
+
           setTimeout(() => {
-              requestPostCreate(values)
+              if (id) {
+                  onHandlerClick(values, id)
+              } else {
+                  onHandlerClick(values)
+              }
               history.push('/');
               }, 400);
         }}
         >
             {({
                   values,
-                  errors,
-                  touched,
                   handleChange,
                   handleBlur,
                   handleSubmit,
@@ -56,9 +55,9 @@ const FormBlog: FunctionComponent<FormTypes> = ({
                         onBlur={handleBlur}
                         value={values.title}
                     />
-                {touched.title && errors.title ? (
-                <ErrorMessage text={errors.title} />
-                ) : null}
+                {!values.title && (
+                <ErrorMessage text="Please Enter you title" />
+                )}
                     </label>
                     <label>
                         body
@@ -70,7 +69,9 @@ const FormBlog: FunctionComponent<FormTypes> = ({
                         onBlur={handleBlur}
                         value={values.body}
                     />
-                  {touched.body && errors.body && errors.body}
+                  {!values.body && (
+                      <ErrorMessage text="Please Enter you body" />
+                  )}
                     </label>
                 </BlockInput>
                     <ButtonSave type="submit">
@@ -82,16 +83,4 @@ const FormBlog: FunctionComponent<FormTypes> = ({
     );
 }
 
-interface ownInterface {
-    sta: any
-    getPost: {
-      postsData: PostsData[],
-    }
-}
-
-const mapStateToProps = (state: ownInterface) => ({
-    postsData: state.getPost.postsData,
-    sta: state.getPost
-})
-
-export default connect(mapStateToProps, actions)(FormBlog);
+export default FormBlog;

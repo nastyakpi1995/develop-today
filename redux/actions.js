@@ -45,7 +45,7 @@ export const errorPostDelete = (id) => ({
   id,
 });
 
-export const requestPostPut = (id, data) => ({
+export const requestPostPut = (data, id) => ({
   type: FETCH_TYPES.PUT_REQUEST,
   id,
   data,

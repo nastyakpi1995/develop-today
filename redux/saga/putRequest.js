@@ -1,11 +1,11 @@
 import {put, call, takeEvery} from 'redux-saga/effects';
 import FETCH_TYPES from '../types';
 
-import { userPut, userList } from '../../api/index';
+import { PostPut, userList } from '../../api/index';
 
 function* getUserSaga(data) {
   try {
-    yield call(() => userPut(data.id, data.data));
+    yield call(() => PostPut(data.id, data.data));
     const users = yield call(() => userList());
 
     yield put({
