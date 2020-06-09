@@ -5,7 +5,6 @@ import { Menu, BoxWrapper } from '../../styled/components/topMenu';
 
 const pages = [
   { id: '', text: 'home' },
-  { id: '/contact', text: 'contact' }
 ];
 
 const TopMenu = () => (

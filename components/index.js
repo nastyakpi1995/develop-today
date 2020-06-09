@@ -4,8 +4,7 @@ import TopMenu from './Header/TopMenu';
 import FormBlog from "./Form/Index";
 import PostsList from './posts/PostsList';
 import Post from './posts/Post';
-import Contact from './contact/Contact';
 
 export {
-    Header, ParticlesSlider, TopMenu, PostsList, Post, Contact, FormBlog
+    Header, ParticlesSlider, TopMenu, PostsList, Post, FormBlog
 };
