@@ -7,7 +7,6 @@ const defaultState = {
   postsData: null,
   postPutSuccess: false,
   postLoading: false,
-  currentPost: '',
   postErrors: null,
   isShowModal: false
 };

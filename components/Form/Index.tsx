@@ -12,22 +12,28 @@ interface ownInterface {
   initialValues: {
       title: string,
       body: string
-  }
+  },
+  setAction?: Function
   id?: number,
-    setIsShowModal: Function,
-    isShowModal: boolean
+  setIsShowModal: Function,
+  isShowModal: boolean
 }
 
 type FormTypes = ownInterface;
 
+const GET_POST = 'GET_CARD';
+
 const FormBlog: FunctionComponent<FormTypes> = ({
-  onHandlerClick, initialValues, id, setIsShowModal, isShowModal
+  onHandlerClick, initialValues, id, setIsShowModal, isShowModal, setAction
 }) => {
   const history = useRouter();
 
     const handlerClick = () => {
         setIsShowModal(false);
         history.push('/');
+        if (setAction) {
+            setAction(GET_POST);
+        }
     }
     return (
     <>
@@ -93,7 +99,8 @@ const FormBlog: FunctionComponent<FormTypes> = ({
                     </Button>
                     </BlockButton>
                 </Block>
-                </Form>}
+                </Form>
+            }
         </Formik>
         </ContainerForm>
     </>

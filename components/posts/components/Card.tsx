@@ -74,6 +74,7 @@ const Card: FunctionComponent<CardTypes> = ({
                     <FormBlog
                         onHandlerClick={requestPostPut}
                         initialValues={initialValues}
+                        setAction={setAction}
                         id={id}
                     />
                 )}
