@@ -14,7 +14,7 @@ const Blog = ({ setIsShowModal }) => {
             <Body>
                 <ParticlesSlider/>
             </Body>
-            <PostsList/>
+            <PostsList show={true}/>
         </Content>
     );
 }

@@ -17,7 +17,6 @@ interface ownInterface {
   postLoading: boolean,
   show?: boolean,
   requestPostCreate: Function,
-  isShowModal: boolean
 }
 
 type PostsListTypes = ownInterface;
@@ -28,7 +27,7 @@ const initialValues = {
 };
 
 const PostsList: FunctionComponent<PostsListTypes> = ({
-  postsData, startRange, showMorePost, endPage, postLoading, requestPostCreate, isShowModal
+  postsData, startRange, showMorePost, endPage, postLoading, requestPostCreate, show
 }) => (
     <Container>
         {postLoading ? (
@@ -67,7 +66,7 @@ const PostsList: FunctionComponent<PostsListTypes> = ({
                 >
                     <a>CREATE NEW POST</a>
                 </Link>
-                {isShowModal &&
+                {show &&
                 <FormBlog
                     initialValues={initialValues}
                     onHandlerClick={requestPostCreate}
@@ -86,7 +85,6 @@ interface PropsInterface {
     currentPage: number,
     pagesQuantity: number,
     postLoading: boolean,
-    isShowModal: boolean
   }
 }
 
@@ -97,7 +95,6 @@ const mapStateToProps = (state: PropsInterface) => ({
    currentPage: state.getPost.currentPage,
    pagesQuantity: state.getPost.pagesQuantity,
    postLoading: state.getPost.postLoading,
-   isShowModal: state.getPost.isShowModal
 });
 
 export default connect(mapStateToProps, actions)(PostsList);
