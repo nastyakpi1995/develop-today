@@ -39,10 +39,6 @@ export const Section = styled.div`
     box-sizing: border-box;
     display: flex;
     
-       
-    div {
-    
-    }
     section {
       width: 40%;
       overflow: hidden;
@@ -56,11 +52,12 @@ export const Section = styled.div`
     'section { width: 100%; height: 200px; }' +
     'flex-direction: column;'
      :
-    ' text-align: left; margin-bottom: 50px;'
+    ' text-align: left; ' +
+    'section { padding: 50px 0;}'
 };
 `;
 
-export const SectionBody =styled.div`
+export const SectionBody = styled.div`
   display: flex;
   justify-content: space-between;
   text-align: center;

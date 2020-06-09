@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import { Menu, BoxWrapper } from '../styled/components/topMenu';
+import { Menu, BoxWrapper } from '../../styled/components/topMenu';
 
 const pages = [
   { id: '', text: 'home' },

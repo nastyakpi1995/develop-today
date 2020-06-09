@@ -13,7 +13,7 @@ type ErrorMessageType = ErrorMessageProps;
 const ErrorMessage:FunctionComponent<ErrorMessageType> = ({ text }) => (
   <ErrorMessageBox>
       <IconError>
-          <ReactIcon color="secondary" size="lg">
+          <ReactIcon color="secondary" size="1px">
               <MdWarning/>
           </ReactIcon>
       </IconError>

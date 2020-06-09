@@ -4,7 +4,7 @@ export const ErrorMessageBox = styled.div`
     align-items: center;
     display: inline-flex;
     padding: 7px 10px;
-    border-radius: $borderRadius;
+    border-radius: 1px solid;
   `;
 
 export const TextError = styled.div`

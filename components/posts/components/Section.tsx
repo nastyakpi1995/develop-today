@@ -32,7 +32,7 @@ const SectionComponent: FunctionComponent<SectionTypes> = ({
                   <Link href={`posts/${id}`}>
                       <Title>{title}</Title>
                   </Link>
-                  <Select setAction={setAction} handler={handlerConfirm} id={id} UPDATE_POST={UPDATE_POST} />
+                  <Select setAction={setAction} index={index} handler={handlerConfirm} id={id} UPDATE_POST={UPDATE_POST} />
               </SectionBody>
               <Text>{content}</Text>
           </section>

@@ -5,19 +5,21 @@ interface Interface {
     id: number,
     handler: Function,
     setAction: Function,
-    UPDATE_POST: string
+    UPDATE_POST: string,
+    index: number
 }
 
 type Type = Interface;
 
-const Select: FunctionComponent<Type> = ({ handler, setAction, UPDATE_POST }) => {
+const Select: FunctionComponent<Type> = ({ handler, setAction, UPDATE_POST, index }) => {
 const [ isShow, setIsShow ] = useState(false);
 const handleClick = () => {
     setIsShow(!isShow)
 }
+debugger
     return (
-        <Dropdown>
-            <ButtonMain type="button" onClick={handleClick}>
+        <Dropdown theme={index}>
+            <ButtonMain theme={index} type="button" onClick={handleClick}>
             <svg width="16" height="4" viewBox="0 0 16 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle className="filter" cx="2" cy="2" r="2" fill="#ACAEAC"/>
                 <circle className="filter" cx="8" cy="2" r="2" fill="#ACAEAC"/>

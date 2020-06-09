@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import Head from 'next/head';
 
-import { SliderWrapper } from '../styled/components/particlesSlider';
+import { SliderWrapper } from '../../styled/components/particlesSlider';
 
 const ParticlesSlider = () => {
   useEffect(() => {
