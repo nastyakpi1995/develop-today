@@ -39,9 +39,10 @@ const FormBlog: FunctionComponent<FormTypes> = ({
               if (id) {
                   onHandlerClick(values, id)
               } else {
+
                   onHandlerClick(values)
               }
-              history.push('/');
+              handlerClick()
               }, 400);
         }}
         >
@@ -82,7 +83,7 @@ const FormBlog: FunctionComponent<FormTypes> = ({
                   )}
                     </label>
                 </BlockInput>
-                  <Button type="button" onClick={() => history.push('/')}>
+                  <Button type="button" onClick={handlerClick}>
                     Cansel
                   </Button>
                     <Button type="submit">
