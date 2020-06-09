@@ -6,17 +6,22 @@ interface Interface {
     handler: Function,
     setAction: Function,
     UPDATE_POST: string,
-    index: number
+    index: number,
+    setIsShowModal: Function
 }
 
 type Type = Interface;
 
-const Select: FunctionComponent<Type> = ({ handler, setAction, UPDATE_POST, index }) => {
+const Select: FunctionComponent<Type> = ({ handler, setAction, UPDATE_POST, index, setIsShowModal }) => {
 const [ isShow, setIsShow ] = useState(false);
 const handleClick = () => {
     setIsShow(!isShow)
 }
-debugger
+const HandlerChange = () => {
+    setIsShowModal(true);
+    setAction(UPDATE_POST);
+}
+
     return (
         <Dropdown theme={index}>
             <ButtonMain theme={index} type="button" onClick={handleClick}>
@@ -28,7 +33,7 @@ debugger
             </ButtonMain>
             {isShow &&
             <DropdownList>
-                <Button type="button" onClick={() => setAction(UPDATE_POST)}>
+                <Button type="button" onClick={HandlerChange}>
                     Edit Gym
                 </Button>
                 <Button

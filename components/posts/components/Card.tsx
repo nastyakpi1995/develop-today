@@ -14,13 +14,15 @@ interface Interface {
     title: string,
     requestPostDelete: Function,
     index: number,
-    requestPostPut: Function
+    requestPostPut: Function,
+    setIsShowModal: Function,
+    isShowModal: boolean
 }
 
 type CardTypes = Interface;
 
 const Card: FunctionComponent<CardTypes> = ({
-  id, content, title, requestPostDelete, index, requestPostPut
+  id, content, title, requestPostDelete, index, requestPostPut, setIsShowModal, isShowModal
 }) => {
     const GET_POST = 'GET_CARD';
     const DELETE_POST = 'DELETE_POST';
@@ -43,6 +45,7 @@ const Card: FunctionComponent<CardTypes> = ({
                     setAction={setAction}
                     UPDATE_POST={UPDATE_POST}
                     handlerConfirm={handlerConfirm}
+                    setIsShowModal={setIsShowModal}
                     title={title}
                   />
                 </CardWrapper>
@@ -70,13 +73,16 @@ const Card: FunctionComponent<CardTypes> = ({
                 body: content
             }
 
-            return (
+            if (isShowModal) {
+                return (
                     <FormBlog
                         onHandlerClick={requestPostPut}
                         initialValues={initialValues}
+                        setIsShowModal={setIsShowModal}
+                        isShowModal={isShowModal}
                         id={id}
                     />
-            );
+                )}
         }
 
         default: {

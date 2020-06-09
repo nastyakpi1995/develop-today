@@ -12,13 +12,14 @@ interface Interface {
     index: number,
     handlerConfirm: Function,
     setAction: Function,
-    UPDATE_POST: string
+    UPDATE_POST: string,
+    setIsShowModal: Function
 }
 
 type SectionTypes = Interface;
 
 const SectionComponent: FunctionComponent<SectionTypes> = ({
-   handlerConfirm, id, content, title, index, setAction, UPDATE_POST
+   handlerConfirm, id, content, title, index, setAction, UPDATE_POST, setIsShowModal
 }) => {
     return (
       <Section theme={index}>
@@ -32,7 +33,7 @@ const SectionComponent: FunctionComponent<SectionTypes> = ({
                   <Link href={`posts/${id}`}>
                       <Title>{title}</Title>
                   </Link>
-                  <Select setAction={setAction} index={index} handler={handlerConfirm} id={id} UPDATE_POST={UPDATE_POST} />
+                  <Select setIsShowModal={setIsShowModal} setAction={setAction} index={index} handler={handlerConfirm} id={id} UPDATE_POST={UPDATE_POST} />
               </SectionBody>
               <Text>{content}</Text>
           </section>

@@ -20,6 +20,7 @@ export const CardWrapper = styled.div`
   box-sizing: border-box;
   display: ${props => (props.theme % 4 !== 0) ? 'inline-block' : 'flex'};
   width: ${props => (props.theme % 4 !== 0) ? '30%' : '100%'};
+  height: ${props => (props.theme % 4 !== 0) ? '30%' : '400px'};
 `;
 
 export const Text = styled.div`

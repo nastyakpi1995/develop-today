@@ -3,7 +3,7 @@ import { Formik, Form } from 'formik';
 import { useRouter } from 'next/router';
 
 import ErrorMessage from './Error';
-import { Wrapper, Button, BlockInput } from '../../styled/components/form';
+import { Button, BlockInput, Backdrop, ContainerForm } from '../../styled/components/form';
 
 interface ownInterface {
   onHandlerClick: Function,
@@ -11,18 +11,26 @@ interface ownInterface {
       title: string,
       body: string
   }
-  id?: number
+  id?: number,
+    setIsShowModal: Function,
+    isShowModal: boolean
 }
 
 type FormTypes = ownInterface;
 
 const FormBlog: FunctionComponent<FormTypes> = ({
-  onHandlerClick, initialValues, id,
+  onHandlerClick, initialValues, id, setIsShowModal, isShowModal
 }) => {
   const history = useRouter();
 
+    const handlerClick = () => {
+        setIsShowModal(false);
+        history.push('/');
+    }
     return (
-    <Wrapper>
+    <>
+        {isShowModal && <Backdrop onClick={handlerClick}/>}
+        <ContainerForm>
       <Formik
         initialValues={initialValues}
         onSubmit={(values: object) => {
@@ -82,7 +90,8 @@ const FormBlog: FunctionComponent<FormTypes> = ({
                     </Button>
                 </Form>}
         </Formik>
-    </Wrapper>
+        </ContainerForm>
+    </>
     );
 }
 

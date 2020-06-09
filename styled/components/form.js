@@ -12,6 +12,24 @@ export const Wrapper = styled.div`
   }
 `;
 
+export const Backdrop = styled.div`
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+`;
+
+export const ContainerForm = styled.div`
+  left: 0;
+  top: 0;
+  position: fixed;
+  z-index: 500;
+  background-color: #ebe9e7;
+`;
+
 export const BlockInput = styled.div`
   display: flex;
   justify-content: center;

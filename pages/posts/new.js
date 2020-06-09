@@ -1,24 +1,15 @@
 import React from 'react';
 
-import { FormBlog } from '../../components';
-import { Content } from '../../styled/pages/pages';
-import {connect} from "react-redux";
-import * as actions from "../../redux/actions";
+import { ParticlesSlider, PostsList} from '../../components';
+import {Body, Content} from '../../styled/pages/pages';
 
-const initialValues = {
-    title: '',
-    body: '',
-};
+const Blog = () => (
+<Content>
+    <Body>
+        <ParticlesSlider/>
+    </Body>
+    <PostsList show={true}/>
+</Content>
+);
 
-const Blog = ({ requestPostCreate }) => {
-    return (
-        <Content>
-            <FormBlog
-                initialValues={initialValues}
-                onHandlerClick={requestPostCreate}
-            />
-        </Content>
-    );
-}
-
-export default connect(null, actions)(Blog);
+export default Blog;
