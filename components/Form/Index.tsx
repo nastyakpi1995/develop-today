@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import ErrorMessage from './Error';
 import { connect } from "react-redux";
 import * as actions from "../../redux/actions";
-import { Button, BlockInput, Backdrop, ContainerForm } from '../../styled/components/form';
+import { Button, Block, Backdrop, ContainerForm, BlockButton } from '../../styled/components/form';
 
 interface ownInterface {
   onHandlerClick: Function,
@@ -55,7 +55,7 @@ const FormBlog: FunctionComponent<FormTypes> = ({
                   handleSubmit,
                   /* and other goodies */
               }) => <Form onSubmit={handleSubmit}>
-                <BlockInput>
+                <Block>
                     <label>
                         title
                     <input
@@ -84,13 +84,15 @@ const FormBlog: FunctionComponent<FormTypes> = ({
                       <ErrorMessage text="Please Enter you body" />
                   )}
                     </label>
-                </BlockInput>
+                    <BlockButton>
                   <Button type="button" onClick={handlerClick}>
                     Cansel
                   </Button>
                     <Button type="submit">
                         Submit
                     </Button>
+                    </BlockButton>
+                </Block>
                 </Form>}
         </Formik>
         </ContainerForm>
