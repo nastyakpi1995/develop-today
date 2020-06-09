@@ -64,3 +64,9 @@ export const errorPostPut = (id) => ({
 export const showMorePost = () => ({
   type: FETCH_TYPES.MORE_POSTS,
 });
+
+export const setIsShowModal = (isShow) => ({
+  type: FETCH_TYPES.SET_SHOW_MODAL,
+  isShow
+});
+

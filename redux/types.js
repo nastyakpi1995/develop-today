@@ -12,6 +12,7 @@ const FETCH_TYPES = {
   PUT_SUCCESS: '@@user/PUT_SUCCESS',
   PUT_FAIL: '@@user/PUT_FAIL',
   MORE_POSTS: '@@user/MORE_POSTS',
+  SET_SHOW_MODAL: '@@user/SET_SHOW_MODAL'
 };
 
 export default FETCH_TYPES;

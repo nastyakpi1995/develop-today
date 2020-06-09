@@ -15,19 +15,17 @@ interface Interface {
     requestPostDelete: Function,
     index: number,
     requestPostPut: Function,
-    setIsShowModal: Function,
     isShowModal: boolean
 }
 
 type CardTypes = Interface;
 
-const Card: FunctionComponent<CardTypes> = ({
-  id, content, title, requestPostDelete, index, requestPostPut, setIsShowModal, isShowModal
-}) => {
-    const GET_POST = 'GET_CARD';
-    const DELETE_POST = 'DELETE_POST';
-    var UPDATE_POST = 'UPDATE_POST';
+const GET_POST = 'GET_CARD';
+const DELETE_POST = 'DELETE_POST';
 
+const Card: FunctionComponent<CardTypes> = ({
+  id, content, title, requestPostDelete, index, requestPostPut, isShowModal
+}) => {
     const [ action, setAction ] = useState(GET_POST)
 
     const handlerConfirm = () => {
@@ -43,9 +41,7 @@ const Card: FunctionComponent<CardTypes> = ({
                     id={id}
                     content={content}
                     setAction={setAction}
-                    UPDATE_POST={UPDATE_POST}
                     handlerConfirm={handlerConfirm}
-                    setIsShowModal={setIsShowModal}
                     title={title}
                   />
                 </CardWrapper>
@@ -67,7 +63,7 @@ const Card: FunctionComponent<CardTypes> = ({
             );
         }
 
-        case UPDATE_POST: {
+        case 'UPDATE_POST': {
             const initialValues = {
                 title: title,
                 body: content
@@ -78,8 +74,6 @@ const Card: FunctionComponent<CardTypes> = ({
                     <FormBlog
                         onHandlerClick={requestPostPut}
                         initialValues={initialValues}
-                        setIsShowModal={setIsShowModal}
-                        isShowModal={isShowModal}
                         id={id}
                     />
                 )}
@@ -91,7 +85,11 @@ const Card: FunctionComponent<CardTypes> = ({
     }
 }
 
+const mapStateToProps = (state: any) => ({
+    isShowModal: state.getPost.isShowModal
+})
+
 export default (
-    connect(null, actions)(Card)
+    connect(mapStateToProps, actions)(Card)
 );
 

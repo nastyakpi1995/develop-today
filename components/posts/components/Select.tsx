@@ -1,18 +1,22 @@
 import React, {FunctionComponent, useState} from 'react';
 import { Dropdown, DropdownList, Button, ButtonMain } from '../../../styled/components/dropdown';
+import { connect } from "react-redux";
+import * as actions from "../../../redux/actions";
 
 interface Interface {
     id: number,
     handler: Function,
     setAction: Function,
-    UPDATE_POST: string,
     index: number,
     setIsShowModal: Function
 }
 
 type Type = Interface;
 
-const Select: FunctionComponent<Type> = ({ handler, setAction, UPDATE_POST, index, setIsShowModal }) => {
+
+const UPDATE_POST = 'UPDATE_POST';
+
+const Select: FunctionComponent<Type> = ({ handler, setAction, index, setIsShowModal }) => {
 const [ isShow, setIsShow ] = useState(false);
 const handleClick = () => {
     setIsShow(!isShow)
@@ -48,5 +52,10 @@ const HandlerChange = () => {
     );
 }
 
-export default Select;
+const mapStateToProps = (state: any) => ({
+    isShowModal: state.getPost.isShowModal
+})
 
+export default (
+    connect(mapStateToProps, actions)(Select)
+);

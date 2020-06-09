@@ -3,6 +3,8 @@ import { Formik, Form } from 'formik';
 import { useRouter } from 'next/router';
 
 import ErrorMessage from './Error';
+import { connect } from "react-redux";
+import * as actions from "../../redux/actions";
 import { Button, BlockInput, Backdrop, ContainerForm } from '../../styled/components/form';
 
 interface ownInterface {
@@ -96,4 +98,10 @@ const FormBlog: FunctionComponent<FormTypes> = ({
     );
 }
 
-export default FormBlog;
+const mapStateToProps = (state: any) => ({
+    isShowModal: state.getPost.isShowModal
+})
+
+export default (
+    connect(mapStateToProps, actions)(FormBlog)
+);
