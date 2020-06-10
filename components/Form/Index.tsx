@@ -13,27 +13,23 @@ interface ownInterface {
       title: string,
       body: string
   },
-  setAction?: Function
+  setAction: Function
   id?: number,
   setIsShowModal: Function,
-  isShowModal: boolean
+  isShowModal: boolean,
 }
 
 type FormTypes = ownInterface;
 
-const GET_POST = 'GET_CARD';
-
 const FormBlog: FunctionComponent<FormTypes> = ({
-  onHandlerClick, initialValues, id, setIsShowModal, isShowModal, setAction
+  onHandlerClick, initialValues, id, setIsShowModal, isShowModal, setAction,
 }) => {
   const history = useRouter();
 
     const handlerClick = () => {
         setIsShowModal(false);
-        history.push('/');
-        if (setAction) {
-            setAction(GET_POST);
-        }
+        history.push('/').then(r => console.log(r));
+        setAction('GET_POST');
     }
     return (
     <>
@@ -47,7 +43,6 @@ const FormBlog: FunctionComponent<FormTypes> = ({
               if (id) {
                   onHandlerClick(values, id)
               } else {
-
                   onHandlerClick(values)
               }
               handlerClick()

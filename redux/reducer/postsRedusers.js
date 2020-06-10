@@ -8,7 +8,6 @@ const defaultState = {
   postPutSuccess: false,
   postLoading: false,
   postErrors: null,
-  isShowModal: false
 };
 
 // -------- Reducer --------
@@ -107,6 +106,7 @@ export default (state = defaultState, action) => {
         postPutSuccess: true,
         postLoading: false,
         postsData: action.data,
+        startRange: action.data.length - 4,
       };
     }
 
@@ -124,15 +124,6 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         startRange: state.startRange - 4,
-      };
-    }
-
-
-    case FETCH_TYPES.SET_SHOW_MODAL: {
-
-      return {
-        ...state,
-        isShowModal: action.isShow,
       };
     }
 

@@ -1,4 +1,4 @@
-import FETCH_TYPES from './types';
+import FETCH_TYPES, { CARD_TYPES } from './types';
 
 export const requestGetPost = (data) => ({
   type: FETCH_TYPES.GET_REQUEST,
@@ -66,7 +66,13 @@ export const showMorePost = () => ({
 });
 
 export const setIsShowModal = (isShow) => ({
-  type: FETCH_TYPES.SET_SHOW_MODAL,
+  type: CARD_TYPES.SET_SHOW_MODAL,
   isShow
 });
+
+export const setAction = (action) => ({
+  type: CARD_TYPES.SET_CARD_ACTION,
+  action
+});
+
 

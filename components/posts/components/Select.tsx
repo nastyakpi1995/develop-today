@@ -1,29 +1,34 @@
-import React, {FunctionComponent, useState} from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { Dropdown, DropdownList, Button, ButtonMain } from '../../../styled/components/dropdown';
 import { connect } from "react-redux";
 import * as actions from "../../../redux/actions";
 
 interface Interface {
-    id: number,
-    handler: Function,
     setAction: Function,
     index: number,
+    id: number,
+    setIdPost: Function,
     setIsShowModal: Function
 }
 
 type Type = Interface;
 
 
-const UPDATE_POST = 'UPDATE_POST';
-
-const Select: FunctionComponent<Type> = ({ handler, setAction, index, setIsShowModal }) => {
+const Select: FunctionComponent<Type> = ({ setAction, index, id, setIsShowModal, setIdPost }) => {
 const [ isShow, setIsShow ] = useState(false);
 const handleClick = () => {
     setIsShow(!isShow)
 }
 const HandlerChange = () => {
     setIsShowModal(true);
-    setAction(UPDATE_POST);
+    setIdPost(id);
+    setAction('UPDATE_POST');
+}
+
+const HandlerDelete = () => {
+    debugger
+    setIdPost(id);
+    setAction('DELETE_POST');
 }
 
     return (
@@ -42,7 +47,7 @@ const HandlerChange = () => {
                 </Button>
                 <Button
                     type="button"
-                    onClick={() => handler()}
+                    onClick={HandlerDelete}
                 >
                     Delete Gym
                 </Button>
@@ -52,8 +57,13 @@ const HandlerChange = () => {
     );
 }
 
-const mapStateToProps = (state: any) => ({
-    isShowModal: state.getPost.isShowModal
+interface StateInterface {
+    cardReducer: {
+        isShowModal: boolean
+    }
+}
+const mapStateToProps = (state: StateInterface) => ({
+    isShowModal: state.cardReducer.isShowModal
 })
 
 export default (

@@ -1,14 +1,8 @@
 import React from 'react';
-import { ParticlesSlider, PostsList } from '../components/index';
-import { Body } from '../styled/pages/pages';
+import { PostsList } from '../components/index';
 
 const HomePage = () => (
-  <>
-    <Body>
-      <ParticlesSlider/>
-    </Body>
     <PostsList/>
-  </>
 );
 
 export default HomePage;

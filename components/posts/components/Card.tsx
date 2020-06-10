@@ -12,55 +12,42 @@ interface Interface {
     id: number,
     content: string,
     title: string,
-    requestPostDelete: Function,
     index: number,
     requestPostPut: Function,
-    isShowModal: boolean
+    isShowModal: boolean,
+    action: string,
 }
 
 type CardTypes = Interface;
 
-const GET_POST = 'GET_CARD';
-const DELETE_POST = 'DELETE_POST';
-
 const Card: FunctionComponent<CardTypes> = ({
-  id, content, title, requestPostDelete, index, requestPostPut, isShowModal
+  id, content, title, index, requestPostPut, isShowModal, action,
 }) => {
-    const [ action, setAction ] = useState(GET_POST)
-
-    const handlerConfirm = () => {
-        setAction(DELETE_POST);
-    }
-
+    const [idPost, setIdPost] = useState(0)
     switch (action) {
-        case GET_POST: {
+
+        case 'GET_POST': {
             return (
                 <CardWrapper theme={index}>
                   <SectionComponent
                     index={index}
                     id={id}
                     content={content}
-                    setAction={setAction}
-                    handlerConfirm={handlerConfirm}
+                    setIdPost={setIdPost}
                     title={title}
                   />
                 </CardWrapper>
             );
         }
 
-        case DELETE_POST: {
-            const handlerCansel = () => {
-                setAction(GET_POST)
+        case 'DELETE_POST': {
+            if (idPost === id) {
+                return (
+                    <CardWrapper theme={index}>
+                        <Confirm id={id} title={title}/>
+                    </CardWrapper>
+                )
             }
-            const handler = () => {
-                requestPostDelete(id)
-                setAction(GET_POST);
-            }
-            return (
-                <CardWrapper theme={index}>
-                    <Confirm id={id} title={title} handlerDelete={handler} handlerCansel={handlerCansel} />
-                </CardWrapper>
-            );
         }
 
         case 'UPDATE_POST': {
@@ -69,16 +56,16 @@ const Card: FunctionComponent<CardTypes> = ({
                 body: content
             }
 
-            if (isShowModal) {
+            if (isShowModal && idPost === id) {
                 return (
                     <FormBlog
                         onHandlerClick={requestPostPut}
                         initialValues={initialValues}
-                        setAction={setAction}
                         id={id}
                     />
                 )}
         }
+
 
         default: {
             return null;
@@ -86,8 +73,16 @@ const Card: FunctionComponent<CardTypes> = ({
     }
 }
 
-const mapStateToProps = (state: any) => ({
-    isShowModal: state.getPost.isShowModal
+interface StateInterface {
+    cardReducer: {
+        isShowModal: boolean,
+        cardAction: string
+    }
+}
+
+const mapStateToProps = (state: StateInterface) => ({
+    isShowModal: state.cardReducer.isShowModal,
+    action: state.cardReducer.cardAction
 })
 
 export default (
