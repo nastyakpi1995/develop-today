@@ -103,7 +103,7 @@ const FormBlog: FunctionComponent<FormTypes> = ({
 }
 
 const mapStateToProps = (state: any) => ({
-    isShowModal: state.getPost.isShowModal
+    isShowModal: state.cardReducer.isShowModal
 })
 
 export default (
