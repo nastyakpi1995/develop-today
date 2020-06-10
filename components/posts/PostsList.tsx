@@ -6,7 +6,7 @@ import Loader from 'react-loader-spinner';
 import Card from './components/Card';
 import * as actions from '../../redux/actions';
 import { PostsData } from "../../redux/typeScript/types";
-import { Container, BoxLoad } from '../../styled/components/blogs/blogs';
+import { Container, BoxLoad, Block } from '../../styled/components/blogs/blogs';
 import { FormBlog } from "../index";
 
 interface ownInterface {
@@ -41,13 +41,20 @@ const PostsList: FunctionComponent<PostsListTypes> = ({
             </BoxLoad>
         ) : (
             <>
-                <button
+                <Block>
+                  <Link
+                    href={`posts/new`}
+                  >
+                    <a>+ NEW POST</a>
+                  </Link>
+                  <button
                     type="button"
                     onClick={() => showMorePost()}
                     disabled={startRange === 1}
-                >
+                  >
                     show more posts
-                </button>
+                  </button>
+                </Block>
                 <div>
                     {postsData && postsData
                         .slice(startRange, endPage)
@@ -61,11 +68,6 @@ const PostsList: FunctionComponent<PostsListTypes> = ({
                             />
                         ))}
                 </div>
-                <Link
-                    href={`posts/new`}
-                >
-                    <a>CREATE NEW POST</a>
-                </Link>
                 {show &&
                 <FormBlog
                     initialValues={initialValues}

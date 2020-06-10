@@ -23,3 +23,26 @@ export const BoxLoad = styled.div`
   justify-content: center;
   display: flex;
 `;
+
+export const Block = styled.div`
+  display: flex;
+  align-items: center;
+  
+  button {
+    &:hover {
+      background: black;
+      color: white
+    }
+  }
+  
+  a {
+    text-decoration: none;
+    border: 1px solid;
+    padding: 10px;
+    cursor: pointer;
+    &:hover {
+      background: black;
+      color: white
+    }
+   }
+`;
