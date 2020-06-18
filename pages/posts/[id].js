@@ -1,10 +1,9 @@
 import React from 'react';
-
 import { Post } from '../../components';
 
 const PostBox = () => (
   <div>
-      <Post/>
+    <Post/>
   </div>
 );
 

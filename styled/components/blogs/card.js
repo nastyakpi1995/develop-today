@@ -53,7 +53,7 @@ export const Section = styled.div`
     'section { width: 100%; height: 200px; }' +
     'flex-direction: column;'
      :
-    ' text-align: left; ' +
+    'text-align: left; ' +
     'section { padding: 50px 0;}'
 };
 `;

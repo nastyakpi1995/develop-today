@@ -9,10 +9,13 @@ export const Container = styled.div`
   width: 95%;
   
   button {
+    font-family: Georgia,serif;
     margin: 10px auto;
     display: flex;
+    height: 30px;
+    color: #935252;
+    align-items: center;
     border: none;
-    background: inherit;
     font-size: x-large;
     cursor: pointer;
   }
@@ -31,7 +34,7 @@ export const Block = styled.div`
   button {
     &:hover {
       background: black;
-      color: white
+      color: white;
     }
   }
   

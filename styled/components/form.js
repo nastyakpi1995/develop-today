@@ -23,8 +23,8 @@ export const Backdrop = styled.div`
 `;
 
 export const ContainerForm = styled.div`
-    background: #473e3e;
- left: 0;
+  background: #473e3e;
+  left: 0;
   top: 0;
   position: fixed;
   z-index: 500;
@@ -57,21 +57,22 @@ export const BlockButton = styled.div`
 `;
 
 export const Block = styled.div`
-     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 5% 15%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5% 15%;
   label {
     display: flex;
     flex-direction: column;
     color: #738a94;
     font-family: Georgia,serif;
-    font-size: 40px;
+    font-size: 30px;
     text-transform: capitalize;
   }
    
   input:nth-child(1) {
     margin-bottom: 30px;
+    border-radius: 10px;
   }
   
   input {
@@ -79,29 +80,13 @@ export const Block = styled.div`
   }
 `;
 
-
-
-export const Button = styled.button`
-  width: 100%;
-  text-transform: uppercase;
-  display: block;
-  color: #fff;
-  outline: none;
-  cursor: pointer;
-  height: 48px;
-  background: #333b3b;
-  border-radius: 24px;
-  font-family: Avenir Next;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  text-align: center;
-  letter-spacing: 1px;
-  
-  margin-top: 45px;
+export const ButtonForm = styled.button`
+  height: 50px !important;
+  border-radius: 10px;
   
   &:hover {
     background: black;
+    color: white;
   }
 `;
 

@@ -16,12 +16,15 @@ export const DropdownList = styled.div`
 `;
 
 export const Dropdown = styled.div`
- ${props => (props.theme % 4 === 0) && 'position: absolute; top: 0; right: 0;'}
+  ${props => (props.theme % 4 === 0) && 'position: absolute; top: 0; right: 0;'}
   width: 30px !important;
   margin: 0;
   cursor: pointer;
 `;
 export const ButtonMain = styled.button`
+  background: black;
+  width: 30px;
+  height: 40px;
   cursor: pointer;
 `;
 

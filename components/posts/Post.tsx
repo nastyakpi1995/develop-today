@@ -1,24 +1,27 @@
 import React, { FunctionComponent } from 'react';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
+
 import { PostsData } from '../../redux/typeScript/types';
-import { Container, PostTitle, Wrapper } from '../../styled/components/post';
 import * as actions from "../../redux/actions";
 
-interface ownInterface {
+import { Container, PostTitle, Wrapper } from '../../styled/components/post';
+
+
+interface OwnInterface {
   postsData: PostsData[],
 }
 
-type PostDataTypes = ownInterface;
+type PostDataTypes = OwnInterface;
 
 const Post: FunctionComponent<PostDataTypes> = ({ postsData }) => {
-  let idPost: any | number, witchPost: PostsData[];
-  idPost = useRouter().query.id;
-  witchPost = postsData?.filter((item) => item.id === +idPost);
+  const idPost = useRouter().query.id;
+  // @ts-ignore
+  const posts = postsData?.filter((item) => item.id === +idPost);
 
   return (
     <Wrapper>
-      {witchPost && witchPost.map(item => (
+      {posts && posts.map(item => (
         <Container>
           <PostTitle>
             {item.title}
@@ -30,7 +33,7 @@ const Post: FunctionComponent<PostDataTypes> = ({ postsData }) => {
   );
 };
 
-interface reduxInterface {
+interface ReduxInterface {
   getPost: {
     postsData: PostsData[],
     startRange: number,
@@ -38,12 +41,12 @@ interface reduxInterface {
   }
 }
 
-const mapStateToProps = (state: reduxInterface) => ({
+const mapStateToProps = (state: ReduxInterface) => ({
   postsData: state.getPost.postsData,
   startRange: state.getPost.startRange,
   endPage: state.getPost.endPage,
 });
 
 export default (
-    connect(mapStateToProps, actions)(Post)
+  connect(mapStateToProps, actions)(Post)
 );

@@ -35,18 +35,18 @@ export const Menu = styled.div`
 `;
 
 export const Home = styled.h1`
-    text-indent: 18px;
-    text-decoration: none;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    font: 14px "BrandonText", Helvetica, Arial, sans-serif;
-    vertical-align: middle;
-    color: #ffffff;
-    display: inline-block;
-    transition: color .35s ease-in-out;
-    width: 100px;
-    cursor: pointer;
-    &:hover {
-      color: gray;
-    }
+  text-indent: 18px;
+  text-decoration: none;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  font: 14px "BrandonText", Helvetica, Arial, sans-serif;
+  vertical-align: middle;
+  color: #ffffff;
+  display: inline-block;
+  transition: color .35s ease-in-out;
+  width: 100px;
+  cursor: pointer;
+  &:hover {
+    color: gray;
+  }
 `;

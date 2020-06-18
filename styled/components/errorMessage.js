@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const ErrorMessageBox = styled.div`
-    align-items: center;
-    display: inline-flex;
-    padding: 7px 10px;
-    border-radius: 1px solid;
+  align-items: center;
+  display: inline-flex;
+  padding: 7px 10px;
+  border-radius: 1px solid;
   `;
 
 export const TextError = styled.div`
