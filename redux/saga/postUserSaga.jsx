@@ -1,7 +1,7 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
 import FETCH_TYPES from '../types';
 
-import { postsPost, userList } from '../../api/index';
+import { postsPost, userList } from '../../api';
 
 function* getPostSaga(data) {
   try {

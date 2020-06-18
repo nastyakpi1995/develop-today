@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect, Provider } from 'react-redux';
 import { createWrapper } from 'next-redux-wrapper';
-import store from '../redux/index';
+import store from '../redux';
 import * as actions from '../redux/actions';
 import { Header, ParticlesSlider } from '../components';
 import { Body } from '../styled/pages/pages';
